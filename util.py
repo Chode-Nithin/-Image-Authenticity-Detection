@@ -8,7 +8,7 @@ model = None
 labels = ['real', 'fake']
 st.title("Authenticity_Detection")
 
-st.wirte("Upload the picture here!")
+st.write("Upload the picture here!")
 
 def load_model():
     global model
