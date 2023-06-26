@@ -28,7 +28,7 @@ def classify_image(file_uploaded):
         img = np.expand_dims(img, 0)
         predictions = model.predict(img) # predicting the label
         label = labels[np.argmax(predictions[0])] # extracting the label with maximum probability
-        probab = float(predictions[0][np.argmax(predictions[0])], 2)
+        probab = float(predictions[0][np.argmax(predictions[0])])
 
         result = {
             'label': label,
