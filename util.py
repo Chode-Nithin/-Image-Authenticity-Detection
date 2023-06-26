@@ -8,7 +8,7 @@ labels = ['real', 'fake']
 st.title("Authenticity_Detection")
 st.write("Upload the picture here!")
 
-@st.cache
+@st.cache_data(allow_output_mutation=True)
 def get_model():
     model_path ='fakevsreal_weights.h5'
     model = tf.keras.models.load_model(model_path)
