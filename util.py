@@ -39,4 +39,6 @@ def classify_image(file_uploaded):
 
     return result
 rs =classify_image(file_uploaded)
-st.markdown(rs)
+st.write("Label:", rs['label'])
+st.write("Probability:", rs['probability'])
+
