@@ -27,7 +27,7 @@ def classify_image(file_uploaded):
         image = image.convert("RGB")  # converting the image to RGB
         img = np.asarray(image)  # converting it to numpy array
         img = np.expand_dims(img, 0)
-        
+
         # Preprocess the image using ResNet50 preprocessing
         img = preprocess_input(img)
 
@@ -41,8 +41,11 @@ def classify_image(file_uploaded):
         # Flatten the output tensor
         flattened_output = tf.keras.layers.Flatten()(resnet_output)
 
-        # Pass the flattened output through your existing model's layers
-        predictions = model(flattened_output)
+        # Reshape the flattened output to match the expected input shape of the sequential model
+        reshaped_output = tf.keras.layers.Reshape((4, 4, 2048))(flattened_output)
+
+        # Pass the reshaped output through your existing model's layers
+        predictions = model(reshaped_output)
 
         # Extract the label with maximum probability
         label = labels[np.argmax(predictions[0])]
@@ -63,6 +66,11 @@ if rs is not None:
     st.write("Your Image is:", rs['label'])
     st.write("Probability:", rs['probability'])
 
+
+
+
+      
+     
 
 
 
