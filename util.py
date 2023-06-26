@@ -4,20 +4,24 @@ from PIL import Image
 import numpy as np
 import streamlit as st
 
-model = None
+
 labels = ['real', 'fake']
 st.title("Authenticity_Detection")
 
 st.write("Upload the picture here!")
 
-def load_model():
-    global model
-    model = tf.keras.models.load_model('fakevsreal_weights.h5')
+# def load_model():
+#     global model
+#     model = tf.keras.models.load_model('fakevsreal_weights.h5')
+@st.cache_resource()
+def get_model():
+    model_path ='fakevsreal_weights.h5'
+    model = tf.keras.models.load_model(model_path)
+    return model
 file_uploaded = st.file_uploader("Choose the Image File", type=["jpg", "png", "jpeg"])
 
 def classify_image(file_uploaded):
-    if model is None:
-        load_model()
+    model=get_model()
 
     image = Image.open(file_uploaded) # reading the image
     image = image.resize((128, 128)) # resizing the image to fit the trained model
