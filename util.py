@@ -38,14 +38,11 @@ def classify_image(file_uploaded):
         # Pass the input through the ResNet50 model
         resnet_output = resnet_model(img)
 
-        # Flatten the output tensor
-        flattened_output = tf.keras.layers.Flatten()(resnet_output)
+        # Apply global average pooling to reduce the dimensions
+        pooled_output = tf.keras.layers.GlobalAveragePooling2D()(resnet_output)
 
-        # Reshape the flattened output to match the expected input shape of the sequential model
-        reshaped_output = tf.keras.layers.Reshape((4, 4, 2048))(flattened_output)
-
-        # Pass the reshaped output through your existing model's layers
-        predictions = model(reshaped_output)
+        # Pass the pooled output through your existing model's layers
+        predictions = model(pooled_output)
 
         # Extract the label with maximum probability
         label = labels[np.argmax(predictions[0])]
@@ -65,6 +62,8 @@ rs = classify_image(file_uploaded)
 if rs is not None:
     st.write("Your Image is:", rs['label'])
     st.write("Probability:", rs['probability'])
+
+
 
 
 
