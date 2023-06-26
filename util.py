@@ -41,7 +41,7 @@ def classify_image(file_uploaded):
 rs = classify_image(file_uploaded)
 
 if rs is not None:
-    st.write("Label:", rs['label'])
+    st.write("Your Image is:", rs['label'])
     st.write("Probability:", rs['probability'])
 
 
