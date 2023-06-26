@@ -42,7 +42,7 @@ def classify_image(file_uploaded):
         flattened_output = tf.keras.layers.Flatten()(resnet_output)
 
         # Reshape the flattened output to match the expected input shape of the sequential model
-        reshaped_output = tf.keras.layers.Reshape((None,128,128,3))(flattened_output)
+        reshaped_output = tf.keras.layers.Reshape((4, 4, 2048))(flattened_output)
 
         # Pass the reshaped output through your existing model's layers
         predictions = model(reshaped_output)
@@ -66,6 +66,11 @@ if rs is not None:
     st.write("Your Image is:", rs['label'])
     st.write("Probability:", rs['probability'])
 
+
+
+        
+
+        
 
 
 
