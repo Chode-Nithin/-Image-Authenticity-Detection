@@ -5,6 +5,7 @@ import numpy as np
 import streamlit as st
 
 labels = ['real', 'fake']
+probab=0
 st.title("Authenticity_Detection")
 st.write("Upload the picture here!")
 
