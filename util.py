@@ -12,7 +12,7 @@
 
 # @st.cache_resource()
 # def get_model():
-#     model_path = 'fakevsreal_weights.h5'
+#     model_path = 'new_model.h5'
 #     model = tf.keras.models.load_model(model_path)
 #     return model
 
@@ -95,7 +95,7 @@ st.write("Upload the picture here!")
 
 @st.cache_resource()
 def get_model():
-    model_path ='fakevsreal_weights.h5'
+    model_path ='new_model.h5'
     model = tf.keras.models.load_model(model_path)
     return model
 
@@ -106,7 +106,7 @@ def classify_image(file_uploaded):
         model = get_model()
 
         image = Image.open(file_uploaded) # reading the image
-        image = image.resize((128, 128)) # resizing the image to fit the trained model
+        image = image.resize((224, 224)) # resizing the image to fit the trained model
         image = image.convert("RGB") # converting the image to RGB
         img = np.asarray(image) # converting it to numpy array
         img = np.expand_dims(img, 0)
