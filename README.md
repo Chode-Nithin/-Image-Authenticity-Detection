@@ -37,3 +37,9 @@ This project focuses on developing tools for image authenticity detection and fa
 ## Contributions
 
 Contributions to this project are welcome! Whether it's bug fixes, feature enhancements, or new ideas, feel free to contribute by submitting pull requests.
+
+## Feedback and Support
+
+For any issues or suggestions, please contact nithinchode@gmail.com. We appreciate your feedback!
+
+---
