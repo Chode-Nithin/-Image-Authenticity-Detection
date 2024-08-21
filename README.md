@@ -29,6 +29,11 @@ This project focuses on developing tools for image authenticity detection and fa
 - Enhancement of the image authenticity detection model with larger datasets and advanced deep learning architectures.
 - Deployment of the project as a web application for wider accessibility and usability.
 
+## Contributors
+
+- Chode Nithin/ @Chode-Nithin
+- Chokkapu Monisha/ @chokkapumonisha
+
 ## Contributions
 
 Contributions to this project are welcome! Whether it's bug fixes, feature enhancements, or new ideas, feel free to contribute by submitting pull requests.
